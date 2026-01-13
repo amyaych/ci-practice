@@ -1,0 +1,287 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 40px;
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+body {
+    font-family:"Roboto";
+    background-color: #fff;
+    padding: 40px 20px;
+    color: #fff;
+}
+
+/* ---------------------Don't think this works----------------- */
+
+/* I wanted the cards to have a glow effect would be better with a dark background */
+@keyframes glow {
+    from {filter:drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
+    }
+    to {filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5));
+    }
+}
+
+/* ------------There's probably a bunch of things that don't work------- */
+
+/* Collectible Cards */
+.subtitle {
+    font-family: 'Bebas Neue';
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #0B3B7C;
+    letter-spacing: 2px;
+}
+
+/* Discord and Webtoon icons */
+.icons {
+    text-align: center;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.icons a {
+    color:#08142A;
+    font-size: 3rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+/* Card Containers */
+.card-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 100px;
+    max-width: 1400px;
+    margin: 0 auto 60px;
+}
+/* Individual Cards, I don't think the glow is working */
+.card {
+    width:400px;
+    height: 550px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+
+/* -------------------------3D Card flipping--------------------- */
+
+/* 3D flip of the card */
+.card-flip {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+/* Card flip ,hover mouse over the card */
+.card:hover .card-flip {
+    transform: rotateY(180deg);
+}
+
+/*  This helps hide the back of the card when it flips, 
+includes the border & shadow of the card*/
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    animation: glow 2s ease-in-out infinite alternate;
+    box-shadow: 0 50px 30px #33CFFF;
+    border: 2px solid #139EE0;
+}
+
+/* Front of card */
+.card-front {
+    background: linear-gradient(135deg, 
+    #08142A 0%, 
+    #0B3B7C 30%,  
+    #139EE0 65%,   
+    #33CFFF 100%  
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+/* ------------------------------------------------------------- */
+
+
+/* Back of card */
+.card-back {
+    background: 
+        linear-gradient(rgba(249, 249, 249, 0.75), rgba(217, 228, 245, 0.75)),
+        url('cardback-background.png');
+        /* Used an image for back of card, but not super happy with it */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: rotateY(180deg);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #08142A;
+}
+
+/* Border arounf text on the back */
+.info-box {
+    border: 4px solid #0B3B7C;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+/* Bulletted list on back of card */
+.card-back ul {
+    margin-left: 20px;
+    margin-bottom: 8px;
+    padding-left: 0;
+}
+
+.card-back li {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 3px;
+}
+
+/* Front of card again the character images */
+.card-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #0B3B7C;   
+}
+
+/* Character name */
+.card-name {
+    font-family: 'Bebas Neue';
+    font-size: 3rem;
+    font-weight: bold;
+    color: #f9f9f9;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* Character title */
+.card-title {
+    font-family: 'Bebas Neue';
+    font-size: 1.5rem;
+    color: #e5e8ee;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Character name */
+.card-back h3 {
+    font-family: 'Bebas Neue';
+    color:#08142A;
+    margin-bottom: 15px;
+    font-size: 3rem;
+    text-align: center;
+}
+
+/* Character attributes */
+.card-back p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* subtitles on back of card */
+.stat-label {
+    color: #08142A;
+    font-weight: bold;
+}
+
+/* Form */
+.request-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #0B3B7C;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px #0B3B7C;
+}
+
+.request-section h2 {
+    text-align: center;
+    color: #f9f9f9;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.form-group {
+    margin: 20px;
+}
+
+
+input, textarea {
+    font-family:"Roboto";
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #08142A;
+    background: #d9e4f5;
+    color:#08142A;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+/* Shadow around fields when selected */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #d9e4f5;
+    box-shadow: 0 0 10px #d9e4f5;
+}
+
+/* Submit button */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color:#f9f9f9;
+    border: none;
+    border-radius: 8px;
+    color: #08142A;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    /* Shadow around submit button */
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+/* When cursor hovers of siubmit button shadow lights up and translate moves the button in a lifting motion */
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px #139EE0;
+}
+
+/* Changes styles based on screen size */
+@media (max-width: 600px) {
+    h1 {font-size: 2.5rem;
+}
+    .card {width: 280px;
+    height: 420px;
+}
+}
+
